@@ -1,0 +1,12 @@
+<header>
+    <h1>My favorite music styles</h1>
+
+    <nav>
+        <!-- 
+        Le routeur d'Angular met à disponsition la directive "routerLink" pour créer facilement des liens
+        vers des routes de l'application. Cpnfiguration qui permet de considérer la route exacte et non ses enfants. 
+        -->
+        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
+        <a routerLink="facesnaps" routerLinkActive="active">Styles de musique</a>
+    </nav>
+</header>

@@ -1,0 +1,42 @@
+<!--
+La String Interpolation 
+***********************
+Méthode la plus simple pour afficher le contenu d'une variable dans le template. Il suffit de mettre le nom de la variable à affiche entre {{ }} dans 
+le HTML. 
+
+La deuxième façons principale d'exploiter une donnée, est la liasion par attribut (attribute binding).
+
+[ngClass] : directive qui permet d'ajouter dynamiquement des classes à des éléments HTML, elle prend un objet en argument où les clés 
+soint des noms de classe CSS, et les valeur sont les conditions selon lesquelles les classes doivent être appliqués.
+-->
+<div id="articles">
+    <div class="face-snap-card" [ngClass]="{ snapped: buttonText === 'Oops, pas !' }">
+        <!-- 
+        - LowerCasePipe : on affiche le texte en minuscules 
+        - UpperCasePipe : on affiche le texte en majuscules 
+        - TitleCasePipe : on affiche le texte avec une majuscule au début de chaque mot, avec le reste du mot 
+        en minuscules
+        -->
+        <h2>{{ faceSnap.title | uppercase }}</h2>
+    
+        <p>Mis en ligne {{ formattedDate }}</p>
+        <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" class="img-snap">
+        <p>{{ faceSnap.description }}</p>
+        <p>
+            <!-- Lier la méthode déclarée au clic sur le bouton avec la liaison par événement (event binding) -->   
+            <button (click)="onSnap()">{{ buttonText }}</button>
+            <!-- 
+            Il faut qu'on puisse cibler directement le nombre de snap, on ajoute un <span> autour
+    
+            - [ngStyle] : permet d'appliquer des styles qui dépendent de valeurs dynamiques, comme un texte qui, plus il y a de snaps, 
+            devient de plus en plus vert. Elle prend en argument un objet où les clés correspondent aux styles CSS à modifier, et les valeurs 
+            aux valeurs que doivent prendre ces styles
+            - les clés sont les styles CSS à modifier 
+            - les valeurs sont les valeurs que doivent prendre ces styles 
+    
+            Pour utiliser directement le nombre de snaps comem valeur pour le vert de la couleur de texte, on peut utiliser la fonction CSS, rgb()
+            -->
+            <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">🤌 {{ faceSnap.snaps }}</span>
+        </p>
+    </div>
+</div>

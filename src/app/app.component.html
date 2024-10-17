@@ -1,0 +1,22 @@
+<!-- Contenu qu'on voit dans le navigateur -->
+
+<!-- 
+Angular permet d'ajouter des propriétés personnalisées aux "components" de manière à ce qu'on puisse les injecter depuis le composant parent. 
+-->
+
+<!-- Sélecteur du nouveau composant -->
+
+<!-- 
+Une directive est une classe qui vient ajouter du comportement à l'élément sur lequel elle est posée. L'astérisque montre qu'il s'agit 
+d'une directive structurelle, qui viendra toucher à la structure du document. La directive *ngFor fonctionne comme une boucle "for...of",
+elle va itérer sous l'alias "faceSnap", elle permet d'insérer un élément dans le DOM pour chaque élément dans un tableau. On associe l'élément
+du tableau à la propriété "faceSnap" du composant.    
+-->
+<!-- 
+<app-face-snap *ngFor="let faceSnapElementInArray of faceSnaps" [faceSnap]="faceSnapElementInArray"></app-face-snap>
+-->
+<app-header></app-header>
+<!-- <app-face-snap-list></app-face-snap-list> -->
+
+<!-- Pour dire à quel niveau du template le "component" de  lar route active doit être inséré -->
+<router-outlet></router-outlet>
